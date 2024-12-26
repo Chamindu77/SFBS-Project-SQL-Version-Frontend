@@ -39,6 +39,7 @@ const CoachPage = () => {
       const response = await axios.get('http://localhost:5000/api/v1/user/all', {
         headers: { 'x-auth-token': token }
       });
+      console.log(response.data)
       setUsers(response.data); 
     } catch (error) {
       console.error('Error fetching user data:', error);

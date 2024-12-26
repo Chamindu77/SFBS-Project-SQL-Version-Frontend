@@ -155,7 +155,7 @@ console.log("get response data",data);
   const addTimeSlot = () => {
     const totalSlots = formData.availableTimeSlots.length + timeSlotsFromBackend.length;
     if (totalSlots >= 5) {
-      toast.error('You can only add up to 5 time slots.');
+      toast.error('You can only add up to 3 time slots.');
       return;
     }
 

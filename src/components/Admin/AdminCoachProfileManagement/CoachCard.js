@@ -37,8 +37,10 @@ const CoachCard = ({ coach, isActive, handleToggleStatus }) => {
     } catch (error) {
       console.error('Error toggling status:', error);
     }
-  };
 
+    
+  };
+  console.log(coach)
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-6 flex flex-col md:flex-row items-center p-4">
       <div className="flex-shrink-0">
