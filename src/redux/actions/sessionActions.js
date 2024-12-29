@@ -13,7 +13,7 @@ export const createSessionRequest = (sessionData) => async (dispatch, getState) 
       },
     };
 
-    await axios.post('http://localhost:5000/api/v1/session/request', sessionData, config);
+    await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/session/request', sessionData, config);
 
     dispatch({
       type: SESSION_REQUEST_SUCCESS,

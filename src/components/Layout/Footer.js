@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';  // Import toast and ToastContainer
-import 'react-toastify/dist/ReactToastify.css';  // Import Toastify CSS
+import { toast, ToastContainer } from 'react-toastify';  
+import 'react-toastify/dist/ReactToastify.css';
 
 const Footer = () => {
     const [email, setEmail] = useState('');
 
-    // Function to handle form submission and show toast
     const handleSubscribe = (e) => {
-        e.preventDefault();  // Prevent page reload
+        e.preventDefault();  
         if (email) {
-            toast.success('Subscribed successfully!');  // Show success toast
-            setEmail('');  // Reset email field after submission
+            toast.success('Subscribed successfully!');  
+            setEmail('');  
         } else {
-            toast.error('Please enter a valid email address!');  // Show error if email is empty
+            toast.error('Please enter a valid email address!');  
         }
     };
 
@@ -53,7 +52,7 @@ const Footer = () => {
                                 placeholder="Enter your email address" 
                                 className="px-4 py-2 sm:mb-0 sm:mr-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600 text-gray-800 w-full sm:w-auto"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}  // Update email state
+                                onChange={(e) => setEmail(e.target.value)}  
                             />
                             <button 
                                 type="submit" 

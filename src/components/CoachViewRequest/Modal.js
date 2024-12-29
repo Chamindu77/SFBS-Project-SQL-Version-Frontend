@@ -18,10 +18,10 @@ const Modal = ({ isOpen, onClose, onConfirm, selectedRequest }) => {
 
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/v1/session/respond/${selectedRequest.sessionRequestId}`,
+                `https://fbs-backend-node-sql.vercel.app/api/v1/session/respond/${selectedRequest.sessionRequestId}`,
                 {
                     status: 'Accepted',
-                    courtNo: courtNo, // Use the selected court number from state
+                    courtNo: courtNo, 
                 },
                 {
                     headers: {
@@ -48,7 +48,7 @@ const Modal = ({ isOpen, onClose, onConfirm, selectedRequest }) => {
 
     const handlePreviousCourtCancel = () => {
         setShowPreviousCourtsModal(false);
-        onClose(); // Close the second modal
+        onClose(); 
     };
 
     if (!isOpen) return null;
@@ -86,8 +86,8 @@ const Modal = ({ isOpen, onClose, onConfirm, selectedRequest }) => {
                             <select
                                 id="previousCourt"
                                 className="mt-1 block w-md py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none"
-                                value={courtNo} // Bind the select value to the courtNumber state
-                                onChange={(e) => setCourtNo(e.target.value)} // Update courtNumber on change
+                                value={courtNo} 
+                                onChange={(e) => setCourtNo(e.target.value)} 
                             >
                                 <option value="01">01</option>
                                 <option value="02">02</option>
@@ -109,7 +109,7 @@ const Modal = ({ isOpen, onClose, onConfirm, selectedRequest }) => {
                             </button>
                             <button
                                 className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition duration-200"
-                                onClick={handlePreviousCourtAccept} // No need to pass value here, it's from state
+                                onClick={handlePreviousCourtAccept} 
                                 disabled={loading}
                             >
                                 {loading ? 'Requesting...' : 'Request Accept'}

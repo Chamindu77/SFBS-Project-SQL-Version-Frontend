@@ -12,7 +12,7 @@ export const createEquipmentBooking = (formData, navigate) => async (dispatch) =
       },
     };
 
-    const res = await axios.post('http://localhost:5000/api/v1/equipment-booking/', formData, config);
+    const res = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/equipment-booking/', formData, config);
 
     dispatch({
       type: CREATE_EQUIPMENT_BOOKING_SUCCESS,

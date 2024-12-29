@@ -22,7 +22,7 @@ const Requests = () => {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/v1/user/all', {
+      const res = await axios.get('https://fbs-backend-node-sql.vercel.app/api/v1/user/all', {
         headers: { 'x-auth-token': token },
       });
       setRequests(res.data);
@@ -38,7 +38,7 @@ const Requests = () => {
   const toggleStatus = async (userId) => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/v1/user/toggle/${userId}`,
+        `https://fbs-backend-node-sql.vercel.app/api/v1/user/toggle/${userId}`,
         {},
         { headers: { 'x-auth-token': token } }
       );
@@ -57,7 +57,7 @@ const Requests = () => {
   const handleDeactivateClick = async (userId) => {
     try {
       // Fetch future bookings for all categories
-      const facilityRes = await axios.get(`http://localhost:5000/api/v1/facility-booking/user/${userId}/future`, {
+      const facilityRes = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/facility-booking/user/${userId}/future`, {
         headers: { 'x-auth-token': token },
       }).catch((error) => {
         if (error.response && error.response.status === 404) {
@@ -67,7 +67,7 @@ const Requests = () => {
         throw error; // Rethrow other errors
       });
 
-      const equipmentRes = await axios.get(`http://localhost:5000/api/v1/equipment-booking/user/${userId}/future`, {
+      const equipmentRes = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/equipment-booking/user/${userId}/future`, {
         headers: { 'x-auth-token': token },
       }).catch((error) => {
         if (error.response && error.response.status === 404) {
@@ -77,7 +77,7 @@ const Requests = () => {
         throw error; // Rethrow other errors
       });
 
-      const sessionRes = await axios.get(`http://localhost:5000/api/v1/session/user/${userId}/future`, {
+      const sessionRes = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/session/user/${userId}/future`, {
         headers: { 'x-auth-token': token },
       }).catch((error) => {
         if (error.response && error.response.status === 404) {
@@ -112,7 +112,7 @@ const Requests = () => {
   const cancelAllBookings = async () => {
     try {
       // Delete future facility bookings
-      await axios.delete(`http://localhost:5000/api/v1/facility-booking/user/${selectedUserId}/future`, {
+      await axios.delete(`https://fbs-backend-node-sql.vercel.app/api/v1/facility-booking/user/${selectedUserId}/future`, {
         headers: { 'x-auth-token': token },
       }).catch((error) => {
         if (error.response && error.response.status === 404) {
@@ -124,7 +124,7 @@ const Requests = () => {
       });
 
       // Delete future equipment bookings
-      await axios.delete(`http://localhost:5000/api/v1/equipment-booking/user/${selectedUserId}/future`, {
+      await axios.delete(`https://fbs-backend-node-sql.vercel.app/api/v1/equipment-booking/user/${selectedUserId}/future`, {
         headers: { 'x-auth-token': token },
       }).catch((error) => {
         if (error.response && error.response.status === 404) {
@@ -136,7 +136,7 @@ const Requests = () => {
       });
 
       // Delete future session bookings
-      await axios.delete(`http://localhost:5000/api/v1/session/user/${selectedUserId}/future`, {
+      await axios.delete(`https://fbs-backend-node-sql.vercel.app/api/v1/session/user/${selectedUserId}/future`, {
         headers: { 'x-auth-token': token },
       }).catch((error) => {
         if (error.response && error.response.status === 404) {

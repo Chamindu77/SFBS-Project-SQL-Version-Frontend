@@ -72,7 +72,7 @@ const Login = ({ login }) => {
     setRole(selectedRole);
     setModalOpen(false);
     // Continue Google login with selected role
-    window.open(`http://localhost:5000/api/v1/auth/google?role=${selectedRole}`, '_self');
+    window.open(`https://fbs-backend-node-sql.vercel.app/api/v1/auth/google?role=${selectedRole}`, '_self');
   };
 
   return (

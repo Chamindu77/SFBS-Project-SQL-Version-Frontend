@@ -38,7 +38,7 @@ const SportCard = ({ facility, onDelete }) => {
     if (confirmDelete) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/api/v1/facilities/${facility.facilityId}`, {
+        await axios.delete(`https://fbs-backend-node-sql.vercel.app/api/v1/facilities/${facility.facilityId}`, {
           headers: { 'x-auth-token': token },
         });
         toast.success('Facility deleted successfully!');
@@ -56,9 +56,9 @@ const SportCard = ({ facility, onDelete }) => {
 
   const handleToggleStatus = () => {
     if (updatedFacility.isActive) {
-      setDeactivationPopupOpen(true); // Open deactivation popup for active facilities
+      setDeactivationPopupOpen(true); 
     } else {
-      toggleStatus(); // Directly activate if already inactive
+      toggleStatus(); 
     }
   };
 
@@ -66,17 +66,17 @@ const SportCard = ({ facility, onDelete }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5000/api/v1/facilities/toggle/${facility.facilityId}`,
+        `https://fbs-backend-node-sql.vercel.app/api/v1/facilities/toggle/${facility.facilityId}`,
         { deactivationReason },
         { headers: { 'x-auth-token': token } }
       );
       setUpdatedFacility(response.data);
-      setDeactivationReason(''); // Clear reason after toggle
+      setDeactivationReason('');
       toast.success(response.data.isActive ? 'Facility activated successfully!' : 'Facility deactivated successfully!');
     } catch (err) {
       toast.error(`Error toggling facility status: ${err.message}`);
     }
-    setDeactivationPopupOpen(false); // Close modal after toggling
+    setDeactivationPopupOpen(false); 
   };
 
   return (

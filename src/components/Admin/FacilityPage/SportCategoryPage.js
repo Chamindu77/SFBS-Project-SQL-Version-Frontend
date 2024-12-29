@@ -30,7 +30,7 @@ const SportCategoryPage = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/v1/facilities', {
+        const response = await axios.get('https://fbs-backend-node-sql.vercel.app/api/v1/facilities', {
           headers: { 'x-auth-token': token },
         });
         setAvailableFacilities(response.data);

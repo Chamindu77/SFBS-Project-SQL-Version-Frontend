@@ -9,23 +9,23 @@ const AdminFacilityBookings = () => {
     const [filteredBookings, setFilteredBookings] = useState([]);
     const [error, setError] = useState('');
     
-    const [selectedSport, setSelectedSport] = useState(''); // Filter state for sport
-    const [selectedCourt, setSelectedCourt] = useState(''); // Filter state for court number
+    const [selectedSport, setSelectedSport] = useState(''); 
+    const [selectedCourt, setSelectedCourt] = useState(''); 
 
     useEffect(() => {
         const fetchBookings = async () => {
-            const token = localStorage.getItem('token'); // Retrieve the token
+            const token = localStorage.getItem('token'); 
             if (!token) {
                 setError('No token found, please login again.');
                 return;
             }
 
             try {
-                const res = await axios.get('http://localhost:5000/api/v1/facility-booking', {
+                const res = await axios.get('https://fbs-backend-node-sql.vercel.app/api/v1/facility-booking', {
                     headers: { 'x-auth-token': token },
                 });
                 setBookings(res.data);
-                setFilteredBookings(res.data); // Set all bookings initially
+                setFilteredBookings(res.data); 
             } catch (err) {
                 setError(err.response?.data?.message || 'Error fetching facility bookings.');
             }

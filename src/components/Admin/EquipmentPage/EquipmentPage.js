@@ -28,7 +28,7 @@ const EquipmentPage = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/v1/equipment', {
+        const response = await axios.get('https://fbs-backend-node-sql.vercel.app/api/v1/equipment', {
           headers: { 'x-auth-token': token },
         });
         setAvailableEquipment(response.data);

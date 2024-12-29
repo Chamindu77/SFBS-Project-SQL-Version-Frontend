@@ -25,7 +25,7 @@ const EquipmentCard = ({ equipment, onDelete }) => {
     if (confirmDelete) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/api/v1/equipment/${equipment.equipmentId}`, {
+        await axios.delete(`https://fbs-backend-node-sql.vercel.app/api/v1/equipment/${equipment.equipmentId}`, {
           headers: { 'x-auth-token': token }
         });
         toast.success('Equipment deleted successfully!');
@@ -51,7 +51,7 @@ const EquipmentCard = ({ equipment, onDelete }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5000/api/v1/equipment/toggle/${equipment.equipmentId}`,
+        `https://fbs-backend-node-sql.vercel.app/api/v1/equipment/toggle/${equipment.equipmentId}`,
         { deactivationReason },
         { headers: { 'x-auth-token': token } }
       );

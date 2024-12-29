@@ -25,7 +25,7 @@ const CoachViewBookingRequest = () => {
                     id = decodedToken.id;
                 }
 
-                const response = await axios.get(`http://localhost:5000/api/v1/session/booking/coach/${id}`, {
+                const response = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/session/booking/coach/${id}`, {
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
                     },

@@ -43,13 +43,13 @@ const EquipmentModal = ({ equipment, isOpen, onClose, onSave }) => {
       let response;
       if (equipment?.equipmentId) {
         // Update existing equipment
-        response = await axios.put(`http://localhost:5000/api/v1/equipment/${equipment.equipmentId}`, formData, {
+        response = await axios.put(`https://fbs-backend-node-sql.vercel.app/api/v1/equipment/${equipment.equipmentId}`, formData, {
           headers: { 'Content-Type': 'multipart/form-data', 'x-auth-token': token },
         });
         toast.success('Equipment updated successfully!');
       } else {
         // Create new equipment
-        response = await axios.post('http://localhost:5000/api/v1/equipment', formData, {
+        response = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/equipment', formData, {
           headers: { 'Content-Type': 'multipart/form-data', 'x-auth-token': token },
         });
         toast.success('Equipment created successfully!');

@@ -17,7 +17,7 @@ const AdminSessionBookings = () => {
             }
 
             try {
-                const res = await axios.get('http://localhost:5000/api/v1/session/bookings', {
+                const res = await axios.get('https://fbs-backend-node-sql.vercel.app/api/v1/session/bookings', {
                     headers: { 'x-auth-token': token },
                 });
                 setBookings(res.data);

@@ -113,7 +113,7 @@ const CoachProfileForm = ({ coachData = {}, onCancel }) => {
           id = decodedToken.id;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/v1/coach-profile/coach/${id}`, {
+        const response = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/coach/${id}`, {
           headers: { 'x-auth-token': localStorage.getItem('token') }
         });
 
@@ -181,7 +181,7 @@ console.log("get response data",data);
       const token = localStorage.getItem('token');
       //console.log("updateProfile",formData.CoachProfileId);
       const updateProfileResponse = await axios.put(
-        `http://localhost:5000/api/v1/coach-profile/${formData.CoachProfileId}`,
+        `https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/${formData.CoachProfileId}`,
         formData,
         { headers: { 'x-auth-token': token } }
 
@@ -195,7 +195,7 @@ console.log("get response data",data);
         formDataImage.append('image', formData.coachImage);
 
         const imageUploadResponse = await axios.put(
-          `http://localhost:5000/api/v1/coach-profile/update-image/${formData.CoachProfileId}`,
+          `https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/update-image/${formData.CoachProfileId}`,
           formDataImage,
           {
             headers: {

@@ -86,32 +86,6 @@ const EquipmentBookingPage = ({ createEquipmentBooking }) => {
         .min(1, 'Quantity must be at least 1')
         .required('Quantity is required'),
     }),
-    // onSubmit: async (values, { setErrors }) => {
-    //   const formData = new FormData();
-    //   formData.append('userName', userDetails.name);
-    //   formData.append('userEmail', userDetails.email);
-    //   formData.append('userPhoneNumber', values.phoneNumber);
-    //   formData.append('sportName', sportName);
-    //   formData.append('equipmentName', equipmentName);
-    //   formData.append('equipmentPrice', rentPrice); 
-    //   formData.append('dateTime', bookingDate.toISOString());
-    //   formData.append('quantity', values.quantity);
-    //   formData.append('totalPrice', rentPrice * values.quantity);
-    //   formData.append('receipt', values.paymentReceipt);
-
-    //   setLoading(true); // Set loading state to true when the form is submitted
-
-    //   try {
-    //     await createEquipmentBooking(formData, navigate);
-    //   } catch (err) {
-    //     setLoading(false); // Set loading back to false if there's an error
-    //     if (err.response && err.response.status === 400) {
-    //       setErrors({ general: err.response.data.msg });
-    //     } else {
-    //       console.error('Error creating booking:', err);
-    //     }
-    //   }
-    // },
 
     onSubmit: async (values, { setErrors }) => {
       const formData = new FormData();
@@ -122,13 +96,13 @@ const EquipmentBookingPage = ({ createEquipmentBooking }) => {
       if (token) {
         try {
           const decodedToken = jwtDecode(token);
-          userId = decodedToken.id; // Extract the user ID from the token
+          userId = decodedToken.id; 
         } catch (error) {
           console.error('Error decoding token:', error);
         }
       }
     
-      formData.append('userId', userId); // Pass the userId to the backend
+      formData.append('userId', userId); 
       formData.append('userName', userDetails.name);
       formData.append('userEmail', userDetails.email);
       formData.append('userPhoneNumber', values.phoneNumber);
@@ -140,12 +114,12 @@ const EquipmentBookingPage = ({ createEquipmentBooking }) => {
       formData.append('totalPrice', rentPrice * values.quantity);
       formData.append('receipt', values.paymentReceipt);
     
-      setLoading(true); // Set loading state to true when the form is submitted
+      setLoading(true); 
     
       try {
         await createEquipmentBooking(formData, navigate);
       } catch (err) {
-        setLoading(false); // Set loading back to false if there's an error
+        setLoading(false); 
         if (err.response && err.response.status === 400) {
           setErrors({ general: err.response.data.msg });
         } else {
@@ -291,7 +265,7 @@ const EquipmentBookingPage = ({ createEquipmentBooking }) => {
                 </button>
                 <button
                   type="submit"
-                  disabled={loading} // Disable while loading
+                  disabled={loading} 
                   className={`py-2 px-4 rounded-lg text-sm font-semibold transition duration-300 ${
                     loading
                       ? 'bg-red-500 text-white cursor-not-allowed'

@@ -109,7 +109,7 @@ const RegisterCoachProfileForm = ({ onCancel }) => {
       const token = localStorage.getItem('token');
 
       const createProfileResponse = await axios.post(
-        'http://localhost:5000/api/v1/coach-profile/',
+        'https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/',
         {
           coachName: values.coachName,
           coachLevel: values.coachLevel,
@@ -131,7 +131,7 @@ const RegisterCoachProfileForm = ({ onCancel }) => {
         formDataImage.append('image', values.coachImage);
 
         await axios.post(
-          `http://localhost:5000/api/v1/coach-profile/upload-image`,
+          `https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/upload-image`,
           formDataImage,
           {
             headers: {

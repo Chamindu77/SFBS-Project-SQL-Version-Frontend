@@ -12,7 +12,7 @@ export const fetchReviewsByCoach = (coachProfileId) => async (dispatch, getState
             },
         };
 
-        const res = await axios.get(`http://localhost:5000/api/v1/reviews/${coachProfileId}`, config);
+        const res = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/reviews/${coachProfileId}`, config);
 
         dispatch({
             type: FETCH_REVIEWS_BY_COACH,

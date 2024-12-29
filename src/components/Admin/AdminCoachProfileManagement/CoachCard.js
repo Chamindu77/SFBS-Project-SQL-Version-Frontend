@@ -19,7 +19,7 @@ const CoachCard = ({ coach, isActive, handleToggleStatus }) => {
     try {
       const token = localStorage.getItem('token');
       console.log(coachUserId)
-      const response = await fetch(`http://localhost:5000/api/v1/coach-profile/toggle/${coachUserId}`, {
+      const response = await fetch(`https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/toggle/${coachUserId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

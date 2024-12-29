@@ -36,7 +36,7 @@ const CoachPage = () => {
   const fetchUserData = async () => {
     try {
       const token = localStorage.getItem('token');  
-      const response = await axios.get('http://localhost:5000/api/v1/user/all', {
+      const response = await axios.get('https://fbs-backend-node-sql.vercel.app/api/v1/user/all', {
         headers: { 'x-auth-token': token }
       });
       console.log(response.data)
@@ -60,7 +60,7 @@ const CoachPage = () => {
     try {
       const token = localStorage.getItem('token');  
       const response = await axios.put(
-        `http://localhost:5000/api/v1/user/toggle/${userId}`,  
+        `https://fbs-backend-node-sql.vercel.app/api/v1/user/toggle/${userId}`,  
         { isActive: newStatus }, 
         { headers: { 'x-auth-token': token } }
       );

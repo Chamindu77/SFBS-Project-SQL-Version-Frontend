@@ -31,7 +31,7 @@ const SessionRequestDetailsPage = () => {
         const userId = decodedToken.id
         console.log(userId);
         const response = await axios.get(
-          `http://localhost:5000/api/v1/session/requests/${userId}`,
+          `https://fbs-backend-node-sql.vercel.app/api/v1/session/requests/${userId}`,
           {
             headers: { 'x-auth-token': token },
           }

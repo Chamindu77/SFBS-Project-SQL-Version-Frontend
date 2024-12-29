@@ -10,7 +10,7 @@ import {
 
 export const createFacilityBooking = (formData, navigate) => async (dispatch) => {
   try {
-    const res = await axios.post('http://localhost:5000/api/v1/facility-booking', formData, {
+    const res = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/facility-booking', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         'x-auth-token': localStorage.getItem('token'),  

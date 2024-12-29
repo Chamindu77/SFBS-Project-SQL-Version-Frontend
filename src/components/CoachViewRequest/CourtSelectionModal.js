@@ -65,7 +65,7 @@ const CourtSelectionModal = ({ isOpen, availableFacilities, userDetails, selecte
         let userId;
         try {
             const decodedToken = jwtDecode(token);
-            userId = decodedToken.id; // Assuming the token payload contains `id` for userId
+            userId = decodedToken.id; 
         } catch (error) {
             console.error('Error decoding token:', error);
             toast.error('Invalid token. Please log in again.');
@@ -89,7 +89,7 @@ const CourtSelectionModal = ({ isOpen, availableFacilities, userDetails, selecte
         //console.log("formData", formData)
 
         try {
-            const response = await axios.post('http://localhost:5000/api/v1/facility-booking/', formData, {
+            const response = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/facility-booking/', formData, {
                 headers: {
                     'x-auth-token': localStorage.getItem('token'),
                     'Content-Type': 'multipart/form-data',
@@ -119,7 +119,7 @@ const CourtSelectionModal = ({ isOpen, availableFacilities, userDetails, selecte
         console.log('selectedCourt', selectedCourt)
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/v1/session/respond/${selectedRequest.sessionRequestId}`,
+                `https://fbs-backend-node-sql.vercel.app/api/v1/session/respond/${selectedRequest.sessionRequestId}`,
                 {
                     status: 'Accepted',
                     courtNo: selectedCourt.courtNumber,
@@ -127,7 +127,7 @@ const CourtSelectionModal = ({ isOpen, availableFacilities, userDetails, selecte
                 {
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
-                        'Content-Type': 'application/json', // Sending JSON data, not multipart
+                        'Content-Type': 'application/json', 
                     },
                 }
             );

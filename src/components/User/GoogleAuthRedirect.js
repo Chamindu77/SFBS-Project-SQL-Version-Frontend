@@ -25,7 +25,7 @@ const GoogleAuthRedirect = () => {
         }
         else {
           try {
-            const response = await axios.get(`http://localhost:5000/api/v1/coach-profile/coach/${userId}`, {
+            const response = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/coach/${userId}`, {
               headers: { 'x-auth-token': token },
             });
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Use Link for navigation
+import { Link, useNavigate } from 'react-router-dom'; 
 import logo from '../../assets/image-navbar.png';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 

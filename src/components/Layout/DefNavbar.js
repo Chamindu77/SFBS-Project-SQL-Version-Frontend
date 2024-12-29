@@ -1,16 +1,14 @@
 import React, {  useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Use Link for navigation
+import { Link, useNavigate } from 'react-router-dom'; 
 import logo from '../../assets/image-navbar.png';
-//import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const DefNavbar = () => {
-    //const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
     const navigate = useNavigate();
 
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            //setIsServicesDropdownOpen(false);
+           
         }
     };
 

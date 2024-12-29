@@ -11,7 +11,7 @@ export const fetchCoachProfiles = () => async (dispatch, getState) => {
       },
     };
 
-    const res = await axios.get('http://localhost:5000/api/v1/coach-profile/all', config);
+    const res = await axios.get('https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/all', config);
 
     dispatch({
       type: FETCH_COACH_PROFILES,
@@ -32,7 +32,7 @@ export const fetchCoachProfileById = (id) => async (dispatch, getState) => {
       },
     };
 
-    const res = await axios.get(`http://localhost:5000/api/v1/coach-profile/${id}`, config);
+    const res = await axios.get(`https://fbs-backend-node-sql.vercel.app/api/v1/coach-profile/${id}`, config);
 
     dispatch({
       type: FETCH_COACH_PROFILE_BY_ID,

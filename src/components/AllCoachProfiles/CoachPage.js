@@ -24,7 +24,7 @@ const CoachPage = () => {
   useEffect(() => {
     setFilteredCoaches(
       coaches.filter(coach =>
-        coach.isActive === true &&  // Ensure the coach is active
+        coach.isActive === true &&  
         (coachingSportFilter ? coach.coachingSport === coachingSportFilter : true) &&
         (coachLevelFilter ? coach.coachLevel === coachLevelFilter : true)
       )
@@ -39,7 +39,7 @@ const CoachPage = () => {
   const handleReset = () => {
     setCoachingSportFilter('');
     setCoachLevelFilter('');
-    setFilteredCoaches(coaches.filter(coach => coach.isActive === true)); // Ensure only active coaches are displayed on reset
+    setFilteredCoaches(coaches.filter(coach => coach.isActive === true)); 
   };
 
   const uniqueCoachingSports = useMemo(() => [...new Set(coaches.map(coach => coach.coachingSport))], [coaches]);

@@ -46,14 +46,14 @@ const FacilityModal = ({ facility, isOpen, onClose, onSave }) => {
       if (facility?.facilityId) {
         // Update facility case
         response = await axios.put(
-          `http://localhost:5000/api/v1/facilities/${facility.facilityId}`,
+          `https://fbs-backend-node-sql.vercel.app/api/v1/facilities/${facility.facilityId}`,
           formData,
           { headers: { 'x-auth-token': token, 'Content-Type': 'multipart/form-data' } }
         );
         toast.success('Facility updated successfully!');
       } else {
         // Create facility case
-        response = await axios.post('http://localhost:5000/api/v1/facilities', formData, {
+        response = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/facilities', formData, {
           headers: { 'x-auth-token': token, 'Content-Type': 'multipart/form-data' },
         });
         toast.success('Facility created successfully!');
