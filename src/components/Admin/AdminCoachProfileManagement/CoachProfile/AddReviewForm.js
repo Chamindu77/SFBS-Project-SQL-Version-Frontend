@@ -9,6 +9,7 @@ const AddReviewForm = ({ onSubmitReview, submitError }) => {
     onSubmitReview(rating, comment);
   };
 
+  
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-bold text-gray-800">Leave a Review</h2>
