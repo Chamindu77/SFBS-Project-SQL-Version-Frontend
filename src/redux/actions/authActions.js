@@ -15,7 +15,7 @@ export const register = (name, email, password, role) => async (dispatch) => {
   const body = JSON.stringify({ name, email, password, role });
 
   try {
-    const res = await axios.post('http://localhost:5000/api/v1/auth/register', body, config);
+    const res = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/auth/register', body, config);
 
     dispatch({
       type: REGISTER_SUCCESS,
@@ -51,7 +51,7 @@ export const login = (email, password) => async (dispatch) => {
   const body = JSON.stringify({ email, password });
 
   try {
-    const res = await axios.post('http://localhost:5000/api/v1/auth/login', body, config);
+    const res = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/auth/login', body, config);
 
     // Decode the JWT token to get user details
     const decoded = jwtDecode(res.data.token);
