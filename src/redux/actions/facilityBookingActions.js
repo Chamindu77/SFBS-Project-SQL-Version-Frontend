@@ -40,7 +40,7 @@ export const createFacilityBooking = (formData, navigate) => async (dispatch) =>
 
 export const fetchAvailableSlots = (courtNumber, date, sportName) => async (dispatch) => {
   try {
-    const res = await axios.post('http://localhost:5000/api/v1/facility-booking/available-slots', {
+    const res = await axios.post('https://fbs-backend-node-sql.vercel.app/api/v1/facility-booking/available-slots', {
       courtNumber,
       date,
       sportName
